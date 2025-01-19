@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const Floatingbar = ({search,}) => {
+const Floatingbar = ({search, loginstat}) => {
   let movie;
+  const [loginstatee,setloginStatee]=useState(false)
   const LoginCall=()=>{
-    
+    setloginStatee(!loginstatee);
+    loginstat(loginstatee);
   }
   return (
     <>
     
     <div className="fixed bottom-10 left-1/2 transform -translate-x-1/2 bg-transparent backdrop-blur-xl rounded-full shadow-xl flex items-center px-6 py-4 space-x-6">
-      {/* Login Icon */}
+      
       <button className="flex items-center space-x-2 rounded-full"
       onClick={LoginCall}
       >

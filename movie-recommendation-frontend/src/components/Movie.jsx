@@ -8,7 +8,7 @@ const Movie = ({search_query}) => {
             axios.get(`http://localhost:3000/api/movies?search=${search_query}`)
         .then((response) => {
           setMovies(response.data);
-          console.log(response.data); 
+         // console.log(response.data); 
         })
         .catch((error) => {
           console.log(`Error: ${error}`);
@@ -18,7 +18,7 @@ const Movie = ({search_query}) => {
             axios.get(`http://localhost:3000/api/movies?search=dune`)
         .then((response) => {
           setMovies(response.data);
-          console.log(response.data); 
+          //console.log(response.data); 
         })
         .catch((error) => {
           console.log(`Error: ${error}`);

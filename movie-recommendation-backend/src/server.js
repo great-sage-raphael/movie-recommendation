@@ -4,7 +4,7 @@ const cors=require('cors');
 const dotenv=require('dotenv');
 const authRoutes=require('../routes/auth');
 const movieRoutes=require('../routes/movies');
-
+const userinfoRoutes=require('../routes/userinfo')
 dotenv.config();
 
 const app=express();
@@ -16,6 +16,7 @@ app.use(express());
 //routes
 app.use('/api/auth',authRoutes);
 app.use('/api/movies',movieRoutes);
+app.use('/api/user',userinfoRoutes);
 
 mongoose.connect(process.env.MONGO_url)
 .then(()=>{console.log("conection established")})

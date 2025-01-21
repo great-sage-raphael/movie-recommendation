@@ -24,13 +24,13 @@ router.post('/login',async(req,res)=>{
         const user=await User.findOne({username: req.body.username})
         if (user) {
             console.log('User exists:', user);
-            //console.log(user.password)
-          //  console.log(req.body)
+            console.log(user.password)
+            console.log(req.body)
         } else {
             console.log('User does not exist');
         }
         if(!user||!(await bcrypt.compare(req.body.password,user.password))){
-           // console.log("invalid");
+            console.log("invalid");
             throw new Error("Invalid credentials");
             
         }

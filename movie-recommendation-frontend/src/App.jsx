@@ -29,6 +29,12 @@ console.log(search_query)
           </>} />
           <Route path="/register" element={ <Register/>} />
           <Route path='/loginpage' element={<Loginpage/>}/>
+          <Route path="/user/:UserId"
+           element={ <>
+           <Movie search_query={search_query}/>
+         <Floatingbar search={search} loginstat={loginstat} /> 
+         {loginState && <Login/>}
+          </>} />
           </Routes>
     </Router>
   

@@ -1,8 +1,13 @@
 import React from 'react'
 import { useState,useEffect } from 'react';
 import axios from 'axios'
-import { Link } from 'react-router-dom';
+import { Link,useNavigate ,useNavigation} from 'react-router-dom';
 import Register from './Register';
+import Login from './Login';
+
+
+
+
 const loginpage = () => {
     const [response, setResponse] = useState(null);
     const [formdata,setformdata]=useState({
@@ -10,7 +15,7 @@ const loginpage = () => {
         password:"",
        
     });
-
+    const navigate=useNavigate()
     const handleChange=(e)=>{
         const {name,value}=e.target;
         setformdata({
@@ -18,15 +23,24 @@ const loginpage = () => {
             [name]:value,
         })
     }
+    
+    const [hasAccount,setHasAccount]=useState(false)
     const handleSubmit=(e)=>{
         e.preventDefault();
         axios.post(`http://localhost:3000/api/auth/login`,formdata)
         .then(response=>{
             setResponse(response.data); 
-            console.log(response)
-            console.log(response.data)
-
+            //console.log(response)
+           // console.log(response.data)
+           const UserId=response.data.user._id;
+            navigate(`/user/${UserId}`)
+            console.log(UserId);
+        }).catch(error=>{
+          alert("Incorrect User or Password Try Again");
+          console.log(error)
         })
+        
+        
     }
     console.log(formdata)
   return (

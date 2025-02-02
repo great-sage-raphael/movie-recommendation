@@ -29,7 +29,7 @@ const Floatingbar = ({search, loginstat}) => {
             d="M12 11c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm0 4c-2.667 0-8 1.333-8 4v1h16v-1c0-2.667-5.333-4-8-4z"
           ></path>
         </svg>
-        <span className="text-white">Login</span>
+        <span className="text-white"></span>
       </button>
 
       
